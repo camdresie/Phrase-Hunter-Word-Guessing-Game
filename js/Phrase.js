@@ -4,14 +4,28 @@
 
  class Phrase {
     constructor (phrase) {
-        this.phrase = phrase.toLowerCase();
+        this.phrase = phrase;
     }
 
-    addPhraseToDisplay() {
-       const phraseDiv = document.createElement('div');
-       phraseDiv.setAttribute('class', 'section');
-       phraseDiv.setAttribute('id', 'phrase');
+/**
+* Display phrase on game board
+*/
 
+    addPhraseToDisplay() {
+       const phraseUl = document.querySelector('#phrase ul');
+       for (let i = 0; i < this.phrase.length; i++) {
+           if (this.phrase.charAt(i) === ' ') {
+               const phraseSpaceLi = document.createElement('li');
+               phraseSpaceLi.textContent = ' ';
+               phraseSpaceLi.setAttribute('class', 'space');
+               phraseUl.appendChild(phraseSpaceLi);
+           } else {
+               const phraseLetterLi = document.createElement('li');
+               phraseLetterLi.textContent = this.phrase[i];
+               phraseLetterLi.setAttribute('class', `hide letter ${this.phrase[i]}`);
+               phraseUl.appendChild(phraseLetterLi);
+           }
+       }
     }
 
     checkLetter() {
