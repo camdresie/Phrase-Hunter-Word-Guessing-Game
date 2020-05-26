@@ -40,7 +40,7 @@
 */
 
     startGame() {
-        document.getElementById('overlay').hidden = true;
+        document.getElementById('overlay').style.visibility = 'hidden';
         const randomPhrase = this.getRandomPhrase();
         this.activePhrase = randomPhrase;
         const phrase = new Phrase(randomPhrase)
