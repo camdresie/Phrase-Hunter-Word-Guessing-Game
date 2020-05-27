@@ -2,6 +2,10 @@
  * Project 4 - OOP Game App
  * Game.js */
 
+/** 
+ * Declares game class with properties missed, phrases, and activePhrase.
+*/
+
  class Game {
     constructor() {
         this.missed = 0;
@@ -10,7 +14,7 @@
     }
 
 /**
-* Creates phrases for use in game
+* Creates phrases for use in game.
 * @return {array} An array of phrases that could be used in the game
 */
 
@@ -31,7 +35,7 @@
     }
 
 /**
-* Selects random phrase from phrases property
+* Selects random phrase from phrases property.
 * @return {Object} Phrase object chosen to be used
 */
     getRandomPhrase() {
@@ -41,7 +45,7 @@
     }
 
 /**
-* Begins game by selecting a random phrase and displaying it to user
+* Begins game by selecting a random phrase and hiding the starting screen from the user. 
 */
 
     startGame() {
@@ -54,7 +58,7 @@
 /**
 * Checks for winning move
 * @return {boolean} True if game has been won, false if game wasn't
-won
+* won
 */
 
     checkForWin() {
@@ -67,9 +71,9 @@ won
     }
 
 /**
-* Increases the value of the missed property
-* Removes a life from the scoreboard
-* Checks if player has remaining lives and ends game if player is out
+* Increases the value of the missed property.
+* Removes a life from the scoreboard.
+* Checks if player has remaining lives and ends game if player is out.
 */
 
     removeLife() {
@@ -85,6 +89,8 @@ won
 /**
 * Displays game over message
 * @param {boolean} gameWon - Whether or not the user won the game
+* This method displays a game over message if the game ends. There is a winning message if the user wins and 
+* a losing message if the user loses. 
 */
 
     gameOver(gameWon) {
@@ -100,11 +106,13 @@ won
 
 /**
 * Handles onscreen keyboard button clicks
-* @param (HTMLButtonElement) button - The clicked button element
+* @param (HTMLButtonElement) button - The clicked button element.
+* This method calls the other methods checkLetter(), showMatchedLetter(), 
+* removeLife(), checkForWin(), and gameOver(), if applicable when a user selects
+* a letter on the onscreen keyboard. 
 */
 
     handleInteraction(button) {
-        console.log(button);
         button.disabled = true;
         const letter = button.innerHTML;
         if (game.activePhrase.checkLetter(letter) === false) {
@@ -120,6 +128,10 @@ won
         }
     }
 
+/**
+ * The resetGame() method takes no parameters and resets all of the game parameters when a user selects 'start game,'
+ * including their number of lives, the keys that have been selected, 
+ */
     resetGame() {
         const list = document.querySelector('#phrase ul');
         while (list.firstChild) {

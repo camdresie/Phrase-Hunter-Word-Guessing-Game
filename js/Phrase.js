@@ -2,13 +2,18 @@
  * Project 4 - OOP Game App
  * Phrase.js */
 
+/**
+ * Declares phrase class which takes one parameter, (phrase), and has one property, the 
+ * phrase parameter in lowerCase.
+ */
+
  class Phrase {
     constructor (phrase) {
         this.phrase = phrase.toLowerCase();
     }
 
 /**
-* Display phrase on game board
+* Display phrase on game board as boxes that hide the letters in the phrase. 
 */
 
     addPhraseToDisplay() {
@@ -42,7 +47,7 @@
     }
 
 /**
-* Displays passed letter on screen after a match is found
+* Displays passed letter on screen after a match is found.
 * @param (string) letter - Letter to display
 */
 
