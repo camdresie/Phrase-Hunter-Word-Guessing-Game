@@ -4,7 +4,7 @@
 
  class Phrase {
     constructor (phrase) {
-        this.phrase = phrase;
+        this.phrase = phrase.toLowerCase();
     }
 
 /**
@@ -28,11 +28,41 @@
        }
     }
 
-    checkLetter() {
+/**
+* Checks if passed letter is in phrase
+* @param (string) letter - Letter to check
+*/
 
+    checkLetter(letter) {
+        const correctLetters = [];
+        for (let i = 0; i < this.phrase.length; i++) {
+            if (letter = this.phrase[i].textContent) {
+                correctLetters.push(letter);
+            }
+        }
+        if (correctLetters.length !== 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    showMatchedLetter() {
+/**
+* Displays passed letter on screen after a match is found
+* @param (string) letter - Letter to display
+*/
 
+    showMatchedLetter(letter) {
+        for (let i = 0; i < this.phrase.length; i++) {
+            if (letter = this.phrase[i]) {
+                const matchedLetters = document.querySelectorAll(`.${letter}`);
+                for (let i = 0; i < matchedLetters.length; i++) {
+                    matchedLetters[i].classList.remove('hide');
+                    matchedLetters[i].classList.add('show');
+                }
+            }
+        }
     }
+
+
  }

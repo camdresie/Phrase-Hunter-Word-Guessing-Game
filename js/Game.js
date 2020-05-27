@@ -46,4 +46,55 @@
         const phrase = new Phrase(randomPhrase)
         phrase.addPhraseToDisplay();
     }
+
+/**
+* Checks for winning move
+* @return {boolean} True if game has been won, false if game wasn't
+won
+*/
+
+    checkForWin() {
+        const hiddenCharacters = document.querySelectorAll('.hide');
+        if (hiddenCharacters.length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+/**
+* Increases the value of the missed property
+* Removes a life from the scoreboard
+* Checks if player has remaining lives and ends game if player is out
+*/
+
+    removeLife() {
+        this.missed += 1;
+        const lives = document.querySelectorAll('.tries');
+        if (lives.length === 0) {
+            gameOver(false);
+        } else {
+            lives[0].classList.remove('.tries');
+        }
+    }
+
+/**
+* Displays game over message
+* @param {boolean} gameWon - Whether or not the user won the game
+*/
+
+    gameOver(gameWon) {
+        document.getElementById('overlay').style.visibility = 'visible';
+        if (gameWon) {
+            document.getElementById('overlay').className = 'win';
+            document.getElementById('game-over-message').textContent = `Congratulations! You guessed the phrase!`;
+        } else {
+            document.getElementById('overlay').className = 'lose';
+            document.getElementById('game-over-message').textContent = `Boo! You didn't get the phrase this time!`;
+        }
+    }
+
+    handleInteraction() {
+
+    }
  }
