@@ -106,14 +106,15 @@ won
     handleInteraction(button) {
         console.log(button);
         button.disabled = true;
-        if (game.activePhrase.checkLetter(button) === false) {
+        const letter = button.innerHTML;
+        if (game.activePhrase.checkLetter(letter) === false) {
             button.classList += ' wrong';
-            this.removeLife(button);
-        } else if (game.activePhrase.checkLetter(button) === true) {
+            this.removeLife();
+        } else if (game.activePhrase.checkLetter(letter) === true) {
             button.classList += ' chosen';
-            phrase.showMatchedLetter(button);
+            game.activePhrase.showMatchedLetter(letter);
             this.checkForWin();
-            if (this.checkForWin) {
+            if (this.checkForWin()) {
                 this.gameOver(true);
             }
         }
