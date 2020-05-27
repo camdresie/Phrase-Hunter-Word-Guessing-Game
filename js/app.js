@@ -12,6 +12,7 @@ const keyboard = document.querySelector('#qwerty');
 let game;
 document.getElementById('btn__reset').addEventListener('click', (e) => {
     game = new Game();
+    game.resetGame();
     game.startGame();
 })
 

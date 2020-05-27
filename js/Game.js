@@ -119,5 +119,21 @@ won
             }
         }
     }
+
+    resetGame() {
+        const list = document.querySelector('#phrase ul');
+        while (list.firstChild) {
+            list.removeChild(list.lastChild);
+        }
+        const keyboard = document.querySelectorAll('#qwerty button');
+        for (let i = 0; i < keyboard.length; i++) {
+            keyboard[i].className = 'key';
+            keyboard[i].disabled = false;
+        }
+        const lives =  document.querySelectorAll('[src="images/lostHeart.png"]');
+        for (let i = 0; i < lives.length; i++) {
+            lives[i].src = 'images/liveHeart.png';
+        }
+    }
     
 }
