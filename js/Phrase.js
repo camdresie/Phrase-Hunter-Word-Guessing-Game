@@ -37,7 +37,7 @@
         if (this.phrase.includes(letter)) {
             return true;
         } else {
-            return false
+            return false;
         }
     }
 

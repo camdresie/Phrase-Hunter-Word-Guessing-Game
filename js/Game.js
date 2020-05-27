@@ -51,54 +51,72 @@
         this.activePhrase.addPhraseToDisplay();
     }
 
-// /**
-// * Checks for winning move
-// * @return {boolean} True if game has been won, false if game wasn't
-// won
-// */
+/**
+* Checks for winning move
+* @return {boolean} True if game has been won, false if game wasn't
+won
+*/
 
-//     checkForWin() {
-//         const hiddenCharacters = document.querySelectorAll('.hide');
-//         if (hiddenCharacters.length === 0) {
-//             return true;
-//         } else {
-//             return false;
-//         }
-//     }
+    checkForWin() {
+        const hiddenCharacters = document.querySelectorAll('.hide');
+        if (hiddenCharacters.length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-// /**
-// * Increases the value of the missed property
-// * Removes a life from the scoreboard
-// * Checks if player has remaining lives and ends game if player is out
-// */
+/**
+* Increases the value of the missed property
+* Removes a life from the scoreboard
+* Checks if player has remaining lives and ends game if player is out
+*/
 
-//     removeLife() {
-//         this.missed += 1;
-//         const lives = document.querySelectorAll('.tries');
-//         if (lives.length === 0) {
-//             gameOver(false);
-//         } else {
-//             lives[0].classList.remove('.tries');
-//         }
-//     }
+    removeLife() {
+        this.missed += 1;
+        if (this.missed === 5) {
+            this.gameOver(false);
+        } else {
+           document.querySelector('[src="images/liveHeart.png"]').src = 'images/lostHeart.png';
+        }
 
-// /**
-// * Displays game over message
-// * @param {boolean} gameWon - Whether or not the user won the game
-// */
+    }
 
-//     gameOver(gameWon) {
-//         document.getElementById('overlay').style.visibility = 'visible';
-//         if (gameWon) {
-//             document.getElementById('overlay').className = 'win';
-//             document.getElementById('game-over-message').textContent = `Congratulations! You guessed the phrase!`;
-//         } else {
-//             document.getElementById('overlay').className = 'lose';
-//             document.getElementById('game-over-message').textContent = `Boo! You didn't get the phrase this time!`;
-//         }
-//     }
+/**
+* Displays game over message
+* @param {boolean} gameWon - Whether or not the user won the game
+*/
 
-//     handleInteraction() {
+    gameOver(gameWon) {
+        document.getElementById('overlay').style.visibility = 'visible';
+        if (gameWon) {
+            document.getElementById('overlay').className = 'win';
+            document.getElementById('game-over-message').textContent = `Congratulations! You guessed the phrase!`;
+        } else {
+            document.getElementById('overlay').className = 'lose';
+            document.getElementById('game-over-message').textContent = `Boo! You didn't get the phrase this time!`;
+        }
+    }
 
-//     }
+/**
+* Handles onscreen keyboard button clicks
+* @param (HTMLButtonElement) button - The clicked button element
+*/
+
+    handleInteraction(button) {
+        console.log(button);
+        button.disabled = true;
+        if (game.activePhrase.checkLetter(button) === false) {
+            button.classList += ' wrong';
+            this.removeLife(button);
+        } else if (game.activePhrase.checkLetter(button) === true) {
+            button.classList += ' chosen';
+            phrase.showMatchedLetter(button);
+            this.checkForWin();
+            if (this.checkForWin) {
+                this.gameOver(true);
+            }
+        }
+    }
+    
 }
