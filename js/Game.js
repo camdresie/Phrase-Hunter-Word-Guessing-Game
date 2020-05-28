@@ -121,7 +121,6 @@
         } else if (game.activePhrase.checkLetter(letter) === true) {
             button.classList += ' chosen';
             game.activePhrase.showMatchedLetter(letter);
-            this.checkForWin();
             if (this.checkForWin()) {
                 this.gameOver(true);
             }
