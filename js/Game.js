@@ -25,6 +25,9 @@
         const phrase3 = `What goes up must come down`;
         const phrase4 = `Keep on Keeping on`;
         const phrase5 = `Like father like son`;
+        phraseList.forEach(phrase => {
+            phraseArray.push(phrase);
+        })
         phraseArray.push(phrase1, phrase2, phrase3, phrase4, phrase5);
         const phraseObjectArray = [];
         phraseArray.forEach(phrase => {
