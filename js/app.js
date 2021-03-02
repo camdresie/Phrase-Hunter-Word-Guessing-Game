@@ -7,7 +7,11 @@
  * button, the game will begin by calling startGame(). 
  */
 
+ let gamesWon = 0;
+ let gamesPlayed = 0;
+ let winPercentage = '100%';
 let game;
+
 document.getElementById('btn__reset').addEventListener('click', (e) => {
     game = new Game();
     game.resetGame();

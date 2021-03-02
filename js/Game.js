@@ -2,6 +2,7 @@
  * Project 4 - OOP Game App
  * Game.js */
 
+
 /** 
  * Declares game class with properties missed, phrases, and activePhrase.
 */
@@ -37,6 +38,15 @@
         return phraseObjectArray;
     }
 
+    /**
+     * Displays the players current number of wins, current number of games played, and win percentage
+     */
+    displayStats() {
+        document.getElementById('games-played').innerHTML = "Games Played: " + gamesPlayed;
+        document.getElementById('games-won').innerHTML = 'Games Won: ' + gamesWon;
+        document.getElementById('win-percentage').innerHTML = 'Win Percentage: ' + winPercentage;
+    }
+
 /**
 * Selects random phrase from phrases property.
 * @return {Object} Phrase object chosen to be used
@@ -53,6 +63,7 @@
 
     startGame() {
         document.getElementById('overlay').style.visibility = 'hidden';
+        this.displayStats();
         const randomPhrase = this.getRandomPhrase();
         this.activePhrase = randomPhrase;
         this.activePhrase.addPhraseToDisplay();
@@ -101,9 +112,14 @@
         if (gameWon) {
             document.getElementById('overlay').className = 'win';
             document.getElementById('game-over-message').textContent = `Congratulations! You guessed the phrase!`;
+            gamesWon++;
+            gamesPlayed++;
+            winPercentage = ((gamesWon / gamesPlayed) * 100).toFixed(2).toString() + '%';
         } else {
             document.getElementById('overlay').className = 'lose';
             document.getElementById('game-over-message').textContent = `Boo! You didn't get the phrase this time!`;
+            gamesPlayed++;
+            winPercentage = ((gamesWon / gamesPlayed) * 100).toFixed(2).toString() + '%';
         }
     }
 
