@@ -2923,7 +2923,6 @@ const phraseList = [
 "in words of one syllable",
 "in your dreams",
 "in your face",
-"Indian sign",
 "ink in",
 "inner circle",
 "inner strength",
