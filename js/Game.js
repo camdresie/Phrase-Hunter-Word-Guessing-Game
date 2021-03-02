@@ -2,7 +2,6 @@
  * Project 4 - OOP Game App
  * Game.js */
 
-
 /** 
  * Declares game class with properties missed, phrases, and activePhrase.
 */
