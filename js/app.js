@@ -2,16 +2,21 @@
  * Project 4 - OOP Game App
  * app.js */
 
- /**
- * Starts a new game and then sets an event listener on the start game button. If a user clicks the 
- * button, the game will begin by calling startGame(). 
+ 
+/**
+ * Games statistics to track during the user's session of playing the game, including games won, games played,
+ * and the player's win percentage
  */
-
  let gamesWon = 0;
  let gamesPlayed = 0;
  let winPercentage = '100%';
-let game;
 
+
+/**
+ * Starts a new game and then sets an event listener on the start game button. If a user clicks the 
+ * button, the game will begin by calling startGame(). 
+ */
+let game;
 document.getElementById('btn__reset').addEventListener('click', (e) => {
     game = new Game();
     game.resetGame();

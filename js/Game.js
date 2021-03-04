@@ -110,13 +110,13 @@
         document.getElementById('overlay').style.visibility = 'visible';
         if (gameWon) {
             document.getElementById('overlay').className = 'win';
-            document.getElementById('game-over-message').textContent = `Congratulations! You guessed the phrase!`;
+            document.getElementById('game-over-message').textContent = `Congratulations! You guessed the phrase! The phrase was ${this.activePhrase.phrase}!`;
             gamesWon++;
             gamesPlayed++;
             winPercentage = ((gamesWon / gamesPlayed) * 100).toFixed(2).toString() + '%';
         } else {
             document.getElementById('overlay').className = 'lose';
-            document.getElementById('game-over-message').textContent = `Boo! You didn't get the phrase this time!`;
+            document.getElementById('game-over-message').textContent = `Boo! You didn't get the phrase this time! The phrase was ${this.activePhrase.phrase}!`
             gamesPlayed++;
             winPercentage = ((gamesWon / gamesPlayed) * 100).toFixed(2).toString() + '%';
         }
@@ -146,7 +146,7 @@
     }
 
 /**
- * The resetGame() method takes no parameters and resets all of the game parameters when a user selects 'start game,'
+ * The resetGame() method takes no parameters and resets all of the game parameters when a user selects 'start game'
  * including their number of lives, the keys that have been selected, 
  */
     resetGame() {
