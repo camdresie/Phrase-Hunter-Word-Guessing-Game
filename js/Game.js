@@ -116,7 +116,7 @@
             winPercentage = ((gamesWon / gamesPlayed) * 100).toFixed(2).toString() + '%';
         } else {
             document.getElementById('overlay').className = 'lose';
-            document.getElementById('game-over-message').textContent = `Boo! You didn't get the phrase this time! The phrase was \"${this.activePhrase.phrase}!\"`
+            document.getElementById('game-over-message').textContent = `Boo! You didn't get the phrase this time! The phrase was \"${this.activePhrase.phrase}!\"`;
             gamesPlayed++;
             winPercentage = ((gamesWon / gamesPlayed) * 100).toFixed(2).toString() + '%';
         }
